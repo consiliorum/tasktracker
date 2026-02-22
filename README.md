@@ -1,4 +1,4 @@
-# tt
+# tasktracker
 
 A command-line task manager built in Rust with SQLite persistence, priority sorting, colored table output, and Markdown export.
 
