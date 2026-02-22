@@ -4,11 +4,11 @@ mod models;
 
 use clap::{Parser, Subcommand};
 use colored::Colorize;
-use comfy_table::{Table, ContentArrangement};
+use comfy_table::{Attribute, Cell, Color, ContentArrangement, Table};
 use models::Priority;
 
 #[derive(Parser)]
-#[command(name = "tasktracker", about = "A CLI task manager")]
+#[command(name = "tt", about = "A CLI task manager")]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -118,23 +118,23 @@ fn main() {
             table.set_header(vec!["ID", "Title", "Priority", "Due", "Status"]);
 
             for task in &tasks {
-                let priority_str = match task.priority {
-                    Priority::High => "high".red().bold().to_string(),
-                    Priority::Medium => "medium".yellow().to_string(),
-                    Priority::Low => "low".green().to_string(),
+                let priority_cell = match task.priority {
+                    Priority::High => Cell::new("high").fg(Color::Red).add_attribute(Attribute::Bold),
+                    Priority::Medium => Cell::new("medium").fg(Color::Yellow),
+                    Priority::Low => Cell::new("low").fg(Color::Green),
                 };
-                let status = if task.done {
-                    "done".dimmed().to_string()
+                let status_cell = if task.done {
+                    Cell::new("done").fg(Color::DarkGrey)
                 } else {
-                    "pending".white().to_string()
+                    Cell::new("pending").fg(Color::White)
                 };
                 let due = task.due_date.as_deref().unwrap_or("-").to_string();
                 table.add_row(vec![
-                    task.id.to_string(),
-                    task.title.clone(),
-                    priority_str,
-                    due,
-                    status,
+                    Cell::new(task.id.to_string()),
+                    Cell::new(task.title.clone()),
+                    priority_cell,
+                    Cell::new(due),
+                    status_cell,
                 ]);
             }
             println!("{table}");

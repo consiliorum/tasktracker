@@ -1,4 +1,4 @@
-# tasktracker
+# tt
 
 A command-line task manager built in Rust with SQLite persistence, priority sorting, colored table output, and Markdown export.
 
@@ -13,8 +13,8 @@ cargo install --path .
 ### Add a task
 
 ```bash
-tasktracker add "Buy groceries" -p high --due 2026-03-01
-tasktracker add "Read book" -d "Finish chapter 5" -p low
+tt add "Buy groceries" -p high --due 2026-03-01
+tt add "Read book" -d "Finish chapter 5" -p low
 ```
 
 Options:
@@ -25,35 +25,35 @@ Options:
 ### List tasks
 
 ```bash
-tasktracker list                  # pending tasks, sorted by priority
-tasktracker list --all            # include completed tasks
-tasktracker list --sort due       # sort by due date
-tasktracker list --done           # show only completed tasks
+tt list                  # pending tasks, sorted by priority
+tt list --all            # include completed tasks
+tt list --sort due       # sort by due date
+tt list --done           # show only completed tasks
 ```
 
 ### Mark a task as done
 
 ```bash
-tasktracker done 1
+tt done 1
 ```
 
 ### Edit a task
 
 ```bash
-tasktracker edit 1 --title "New title" --priority low --due 2026-04-01
+tt edit 1 --title "New title" --priority low --due 2026-04-01
 ```
 
 ### Remove a task
 
 ```bash
-tasktracker remove 1
+tt remove 1
 ```
 
 ### Export to Markdown
 
 ```bash
-tasktracker export                  # print to stdout
-tasktracker export --file tasks.md  # save to file
+tt export                  # print to stdout
+tt export --file tasks.md  # save to file
 ```
 
 ## Storage

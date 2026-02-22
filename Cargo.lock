@@ -572,18 +572,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "tasktracker"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "clap",
- "colored",
- "comfy-table",
- "dirs",
- "rusqlite",
-]
-
-[[package]]
 name = "thiserror"
 version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -601,6 +589,18 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "tt"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "clap",
+ "colored",
+ "comfy-table",
+ "dirs",
+ "rusqlite",
 ]
 
 [[package]]
