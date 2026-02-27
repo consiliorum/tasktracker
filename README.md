@@ -2,6 +2,9 @@
 
 A command-line task manager built in Rust with SQLite persistence, priority sorting, colored table output, and Markdown export.
 
+![Rust](https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
+
 ## Installation
 
 ```bash
